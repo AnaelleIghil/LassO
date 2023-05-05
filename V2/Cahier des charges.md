@@ -26,7 +26,8 @@ Créer dans le cadre du projet d'apothéose de l'école O'clock, ce projet de gr
 - vérification des email, téléphone, sanitizer à insulte
 - génération mot de passe
 - quantité instrument et costumes
-
+- réfléchir à la gestion des membres mineurs
+  
 #### Features dev
 
 si en cours de routes j'ajoute des fonctionnalités qui ne seront pas lié à la v3, c'est ici qu'elles seront notés.
@@ -36,11 +37,11 @@ si en cours de routes j'ajoute des fonctionnalités qui ne seront pas lié à la
 |*Asso*|
 |--------|
 Pole
-Responsable( adhérent_id)
+Responsable
 Mail
-Password
+Mot_de_passe
 
-|*Adhérent*|
+|*Adhérents*|
 |----------|
 Code_Adhérent
 Url_photo
@@ -48,7 +49,7 @@ Nom
 Prénom
 Surnom
 Email
-Mot de passe
+Mot_de_passe
 Date de naissance
 Téléphone
 Adresse
@@ -57,7 +58,6 @@ Genre_costumes
 Taille_haut
 Taille_bas
 Status
-Cotisations
 
 |*Instruments*|
 |--------------|
@@ -71,42 +71,91 @@ Tirants
 Poids
 Sticker
 
-|*PretInstruments*|
+|*Pret_Instruments*|
 |-----------------|
+Code_location
 Code_utilisateur
 Code_instrument
 Date_pret
 
-|*Costume*|
+|*Costumes*|
 Code_costume
 Groupe
 Genre
 Observations
 Taille
 
-|*PretCostume*|
+|*Pret_Costumes*|
 |-------------|
+Code_pret
 Code_costume
 Code_utilisateur
 Date_pret
 
 |*Trésorerie*|
 |------------|
-Date d’émission
-Date de paiements
-Sujet de la facture
-Commission responsable
+Code_Facture
+Date_d’émission
+Date_de_paiements
+Sujet
+Pole
 
 |*Trésorerie_adhérent*|
 |----------------------|
+Code_trésorerie
 Code_adhérent
 Status_caution
 Statuts_cotisation
 
 |*Tickets*|
 |---------|
+Code_ticket
 Code_pole
 Code_adhérent
 Status
+Contenu
+
+|*Messagerie*|
+|-------------|
+Code_message
+Code_adhérent
+Code_Pole
+Date_envoi
+Sujet
+Contenu
 
 #### Mocodo tentaculaire
+
+:
+Tickets : Code_tickets, Code_pole, Code_adhérent, Status, Contenu
+:
+Asso : Pole, Responsable (adhérent_id), Mail, Mot_de_passe
+:
+
+Pret_Costumes: Code_pret, Code_costume, Code_utilisateur, Date_pret
+est échangé , 01 Adhérents, 01 Asso , 11 Tickets : Code_adhérent, Code_Pole, Code_Tickets
+est membre, 01 Adhérents, 11 Asso : Responsable, Code_Adhérent
+Communique, 01 Adhérents, 01 Asso, 11 Messagerie : Code_Adhérent, Code_Pole, Code_message
+:
+
+Costumes: Code_costume, Groupe, Genre, Observations, Taille
+porte , 01 Adhérents, 01 Costumes, 11 Pret_Costumes : Code_Adhérent, Code_Costumes, Code_pret
+Adhérents: Code_Adhérent, Url_photo, Nom, Prénom, Surnom, Email, Mot_de_passe, Date_de_naissance, Téléphone, Adresse, Code postale, Genre_costumes, Taille_haut, Taille_bas, Status
+Messagerie: Code_message, Code_adhérent, Code_Pole, Date_envoi, Sujet, Contenu
+régie,  01 Asso, 11 Trésorerie : Pole, Pole
+
+joue de, 0N Adhérents, 01 Instruments, 11 Pret_Instruments : Code_Instrument, Code_Adhérent
+Pret_Instruments: Code_location, Code_utilisateur, Code_instrument, Date_pret
+scrute, 01 Adhérents, 01 Pret_Instruments, 11 Trésorerie, 11 Trésorerie_adhérent : Code_Adhérent, Code_pret, Code_trésorerie, Code_Facture
+Trésorerie : Code_Facture, Date_d’émission, Date_de_paiements, Sujet, Pole
+:
+
+Instruments: Code_Instrument, Nom, Pupitre, Type, Observations, Profondeur, Tirants, Poids, Sticker,
+:
+Trésorerie_adhérent : Code_trésorerie, Code_Adhérent, Status_caution, Statuts_cotisation
+:
+:
+
+## Technologies utilisés
+
+SQL
