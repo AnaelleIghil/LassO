@@ -159,3 +159,5 @@ Trésorerie_adhérent : Code_trésorerie, Code_Adhérent, Status_caution, Statut
 ## Technologies utilisés
 
 SQL
+postgresql
+ApolloServer
