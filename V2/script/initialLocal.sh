@@ -8,3 +8,8 @@
 #                                             |__/                                          |___/ 
 
 echo "Welcome to the Initiate Locally Script "
+
+./db/init.db
+
+echo "Creation of the administrateur user"
+
