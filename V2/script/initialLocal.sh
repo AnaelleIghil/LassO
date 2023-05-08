@@ -9,7 +9,7 @@
 
 echo "Welcome to the Initiate Locally Script "
 
-./db/init.db
+sudo -U -i psql -f ./db/init.sql
 
-echo "Creation of the administrateur user"
+echo "Creation of the administrateur user and the tables"
 

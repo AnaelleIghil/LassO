@@ -58,6 +58,8 @@ Genre_costumes
 Taille_haut
 Taille_bas
 Status
+Instruments
+
 
 |*Instruments*|
 |--------------|
@@ -123,6 +125,7 @@ Code_Pole
 Date_envoi
 Sujet
 Contenu
+Status
 
 #### Mocodo tentaculaire
 
