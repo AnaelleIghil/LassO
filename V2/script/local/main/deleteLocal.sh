@@ -9,3 +9,31 @@
 
 echo "Welcome to the delete Script "
 
+PS3='Please, choose what do you want to delete: '
+options=("Delete All" "Delete Tables" "Delete Database" "Quit")
+select opt in "${options[@]}"
+
+do
+
+    case $opt in 
+    "Delete All")
+        echo "You choose to delete all, please wait"
+./script/local/deleteScripts/deleteAll.sh
+        ;;
+
+    "Delete Tables")
+        echo "You choose to delete tables " 
+./script/local/deleteScripts/deleteTables.sh
+        ;;
+        
+    "Delete Database")
+        echo "You choose to delete Database"
+./script/local/deleteScripts/deleteDatabase.sh
+        ;;
+        
+        "Quit")
+        break;;
+        *) echo "invalid option $REPLY";;
+    esac
+
+done

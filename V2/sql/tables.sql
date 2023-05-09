@@ -1,24 +1,5 @@
-
-CREATE ROLE "admin-LassO" WITH
-  LOGIN
-  SUPERUSER
-  INHERIT
-  CREATEDB
-  CREATEROLE
-  REPLICATION
-  ENCRYPTED PASSWORD 'SCRAM-SHA-256$4096:h0Jv2VDcQDfHnRPJxMX13g==$nJ329oSlzrwNl6ZsBcOhsiLKviQhJtpUYcC8TrDPMVQ=:iZmKPKVIlwcPM90JTd8RIeYaD34cr3omom6XaOobKZc=';
-
-COMMENT ON ROLE "admin-LassO" IS 'Main administrateur for LassO project';
-
-CREATE DATABASE "LassO"
-    WITH
-    OWNER = "admin-LassO"
-    ENCODING = 'UTF8'
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
-
-COMMENT ON DATABASE "LassO"
-    IS 'Database of Lasso project V1';
+-- Creation of the tables
+BEGIN ; 
 
 CREATE DOMAIN "email"
     AS text;
@@ -84,7 +65,7 @@ CREATE TABLE IF NOT EXISTS "instrument"
     sticker boolean,
     CONSTRAINT "id_Instrument" PRIMARY KEY (id)
         INCLUDE(id)
-)
+);
 
 CREATE TABLE IF NOT EXISTS "member"
 (
@@ -113,7 +94,8 @@ CREATE TABLE IF NOT EXISTS "member"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         NOT VALID
-)
+);
+
 CREATE TABLE IF NOT EXISTS "suits"
 (
     id integer NOT NULL,
@@ -122,7 +104,8 @@ CREATE TABLE IF NOT EXISTS "suits"
     observation text COLLATE pg_catalog."default",
     size size,
     CONSTRAINT "id_Suit" PRIMARY KEY (id)
-)
+);
+
 CREATE TABLE "loan_Instrument"
 (
     id integer NOT NULL,
@@ -142,8 +125,9 @@ CREATE TABLE "loan_Instrument"
         ON UPDATE CASCADE
         ON DELETE CASCADE
         NOT VALID
-)
-CREATE TABLE public."loan_Suit"
+);
+
+CREATE TABLE "loan_Suit"
 (
     id integer NOT NULL,
     "id_Member" integer,
@@ -172,7 +156,7 @@ CREATE TABLE "treasury"
     pole pole,
     CONSTRAINT id_treasury PRIMARY KEY (id)
 );
-CREATE TABLE public."treasury_Member"
+CREATE TABLE "treasury_Member"
 (
     id integer NOT NULL,
     "id_Member" integer,
@@ -208,5 +192,6 @@ CREATE TABLE IF NOT EXISTS "messages"
     subject text COLLATE pg_catalog."default",
     content text COLLATE pg_catalog."default",
     status "statusTickets"
-)
+);
 
+COMMIT;

@@ -9,7 +9,22 @@
 
 echo "Welcome to the Initiate Locally Script "
 
-psql -u postgres -f ./db/init.sql
+sudo -u postgres psql -f sql/init.sql
 
-echo "Creation of the administrateur user and the tables"
+echo "Creation of the administrateur user and database"
 
+touch .env 
+
+echo "Creation of environnmental files"
+
+echo "
+PGHOST=3003
+PGUSER=admin-LassO
+PGDATABASE=LassO
+PGPASSWORD=lasso
+">>.env 
+echo ".env variables implemented" 
+
+psql -U  "admin-LassO" -d "LassO" -f sql/tables.sql
+
+echo "creation of tables"

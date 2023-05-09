@@ -9,3 +9,5 @@
 #                                                            |___/                |__/                
 
 echo "Welcome to the revert Locally Script"
+
+choose option to revert

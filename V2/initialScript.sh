@@ -16,32 +16,32 @@ do
     case $opt in 
         "Initial On Local")
             echo "You choose local initialisation"
-./script/initialLocal.sh
+./script/local/main/initialLocal.sh
             ;;
 
         "Initial online")
             echo "You choose online installation"
-./script/initialOnline.sh
+./script/online/initialOnline.sh
            ;;
 
         "Delete Local")
         echo "You choose to delete local version"
-./script/deleteLocal.sh
+./script/local/deleteLocal.sh
             ;;
 
         "Delete Online")
         echo "You choose to delete local version"
-./script/deleteOnline.sh
+./script/online/deleteOnline.sh
             ;;
         
         "Revert Local")
         echo "You choose to delete local version"
-./script/revertLocal.sh
+./script/local/revertLocal.sh
             ;;
 
         "Revert Online")
         echo "You choose to delete local version"
-./script/revertOnline.sh
+./script/online/revertOnline.sh
             ;;
             
         "Quit")
@@ -52,3 +52,6 @@ do
     esac
 
 done
+
+
+ 

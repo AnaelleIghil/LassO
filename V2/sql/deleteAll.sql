@@ -1,0 +1,3 @@
+
+DROP DATABASE  IF EXISTS "LassO" ;
+DROP ROLE  IF EXISTS "admin-LassO" ;
