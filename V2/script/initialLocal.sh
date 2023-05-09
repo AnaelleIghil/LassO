@@ -9,7 +9,7 @@
 
 echo "Welcome to the Initiate Locally Script "
 
-sudo psql -u postgres -f ./db/init.sql
+psql -u postgres -f ./db/init.sql
 
 echo "Creation of the administrateur user and the tables"
 
