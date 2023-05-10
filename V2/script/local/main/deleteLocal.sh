@@ -32,7 +32,8 @@ do
         ;;
         
         "Quit")
-        break;;
+        break
+        ;;
         *) echo "invalid option $REPLY";;
     esac
 

@@ -2,15 +2,19 @@
 
 ## Projet initial
 
-Créer dans le cadre du projet d'apothéose de l'école O'clock, ce projet de groupe est trés vite apparu bancal pour moi, dans sa forme. j'ai donc décider de le reprendre et d'y apporter les modifications nécessaire, étapes par étapes. De plus, ce travail me permettra aussi de m'approprier les echniques qui ont été accaparés par mon binome. je reproduirais une méthodo similaire afin de produire un résultat qui me satisfera.
+Créer dans le cadre du projet d'apothéose de l'école O'clock, le projet initial O'L'asso est une application de gestion de l'association Batala. N'ayant pu réaliser que le MVP, j'ai décidé de reprendre ce projet, de le modifier et de dévelloper un ceratin nombre de feature manquantes. 
+
+Aisni, j'ai ajouté la gestiuon de la trésorerie, des évènments, de la messagerie et d'un systeme de tickets .
+
+De plus, ce travail sera pour moi l'occasion de m'approprier les techniques que nous avions explorés, et de les approfondir .
 
 ### MVP
 
 *Front :*
 
 - Une page de connections, qui vérifire la couple email/login, décrypté.
-- Un lien de reset password, avec ne génération en interne d'un mdp
-- Une page d'acceuil qui permet de selcla navigation : infos perso, instruments, costumes, évenements et une board de contact simple
+- Un lien de reset password, avec une génération en interne d'un mdp
+- Une page d'acceuil qui permet de la navigation : infos perso, instruments, costumes, évenements et une board de contact simple
 - Des vues déaillées en listes pour les instruments et les costumes
 - Une vue en formulaire pour les infos perso
 - Tickets depuis instruments evenements et costumes pour contacter rapidement le pole
@@ -27,6 +31,7 @@ Créer dans le cadre du projet d'apothéose de l'école O'clock, ce projet de gr
 - génération mot de passe
 - quantité instrument et costumes
 - réfléchir à la gestion des membres mineurs
+- intégration d'une gestion des évenèments
   
 #### Features dev
 
@@ -126,6 +131,21 @@ Date_envoi
 Sujet
 Contenu
 Status
+
+**Event on progress**
+
+|*Event*|
+|-------|
+Code_Event
+Type
+Date
+Status
+Content
+
+|*Event_participants*|
+|--------------------|
+Code_EventParticipants
+Code_Event
 
 #### Mocodo tentaculaire
 

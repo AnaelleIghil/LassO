@@ -9,39 +9,45 @@
 
 
 PS3='Please, choose an option: '
-options=("Initial On Local" "Initial online" "Delete Local" "Delete Online" "Revert Local" "Revert Online" "Quit")
-select opt in "${options[@]}"
-do
+while true; do 
+    clear
+    options=("Initial On Local" "Initial online" "Delete Local" "Delete Online" "Revert Local" "Revert Online" "Quit")
+    select opt in "${options[@]}"
+        do
 
-    case $opt in 
-        "Initial On Local")
-            echo "You choose local initialisation"
+            case $opt in 
+                "Initial On Local")
+                    echo "You choose local initialisation"
 ./script/local/main/initialLocal.sh
+                break
             ;;
 
-        "Initial online")
-            echo "You choose online installation"
+                "Initial online")
+                    echo "You choose online installation"
 ./script/online/initialOnline.sh
+                break
            ;;
 
-        "Delete Local")
-        echo "You choose to delete local version"
-./script/local/deleteLocal.sh
+                "Delete Local")
+                    echo "You choose to delete local version"
+./script/local/main/deleteLocal.sh
+                break
             ;;
 
-        "Delete Online")
-        echo "You choose to delete local version"
+                "Delete Online")
+                    echo "You choose to delete local version"
 ./script/online/deleteOnline.sh
             ;;
         
-        "Revert Local")
-        echo "You choose to delete local version"
+                "Revert Local")
+                    echo "You choose to delete local version"
 ./script/local/revertLocal.sh
             ;;
 
-        "Revert Online")
-        echo "You choose to delete local version"
+                "Revert Online")
+                     echo "You choose to delete local version"
 ./script/online/revertOnline.sh
+                break
             ;;
             
         "Quit")

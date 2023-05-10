@@ -10,4 +10,29 @@
 
 echo "Welcome to the revert Locally Script"
 
-choose option to revert
+
+PS3='Please, choose what do you want to revert: '
+options=("First Draft" "Event addition" "Quit")
+select opt in "${options[@]}"
+
+do
+
+    case $opt in 
+    "First Draft")
+        echo "You choose to revert the first draft, please wait"
+./script/local/revertScripts/
+
+#./script/local/deleteScripts/deleteAll.sh
+        ;;
+
+    "Event addition")
+        echo "You choose to revert before addition of event tables " 
+./script/local/revertScripts/eventTables.sh
+        ;;
+        
+        "Quit")
+        break;;
+        *) echo "invalid option $REPLY";;
+    esac
+
+done
