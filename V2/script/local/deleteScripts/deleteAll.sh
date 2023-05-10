@@ -6,6 +6,6 @@ sudo -u postgres psql -f sql/deleteTables.sql
 
 echo "Tables deleted"
 
-sudo -u posqtgres psql -f sql/deleteDatabase.sql
+sudo -u postgres psql -f sql/deleteDatabase.sql
 
 echo "Database and Role deleted"
