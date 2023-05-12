@@ -12,6 +12,7 @@ while true; do
                                 case $opt in 
                                 "Initial Locally")
                                 echo "Welcome to the Initiate Locally Script "
+
                                 sudo -u postgres psql -f sql/init.sql
                                 echo "Creation of the administrateur user and database"
                                 touch .env 

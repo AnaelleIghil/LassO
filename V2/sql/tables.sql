@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS "member"
     gender_suits gender,
     size_up size,
     size_bottom size,
-    status status,
+    status pole,
     created_at timestamp with time zone NOT NULL DEFAULT now(),
     updated_at timestamp with time zone NOT NULL DEFAULT now(),
     instrument integer,
