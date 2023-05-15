@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS "member"
 CREATE TABLE IF NOT EXISTS "suits"
 (
     id integer NOT NULL,
-    "group" text COLLATE pg_catalog."default",
+    group text COLLATE pg_catalog."default",
     gender gender,
     observation text COLLATE pg_catalog."default",
     size size,
