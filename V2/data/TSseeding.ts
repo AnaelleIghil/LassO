@@ -66,7 +66,7 @@ console.log("randomTreasuryMember : ", randomTreasuryMember)
 
 const randomIssue = {
     id_Member: faker.number.int({min: 1, max: 69}),
-    id_organization : faker.helpers.enumValue(Status)
+    id_organization : faker.helpers.enumValue(Status),
     content : faker.,
 }
 console.log("randomIssue : ", randomIssue)
