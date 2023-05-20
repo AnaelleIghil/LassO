@@ -26,7 +26,7 @@ password : faker.internet.password(),
 birthdate : faker.date.birthdate({ min: 1930, max: 2015}),
 phone : faker.phone.number('06 ## ## ## ##'),
 adress: faker.location.streetAddress() ,
-zip_code : faker.location.zipCode({ state: "FR"}) ,
+zip_code : faker.location.zipCode({ state: "fr"}) ,
 gender_suit : faker.helpers.enumValue(Gender),
 size_up : faker.helpers.enumValue(Size) ,
 size_bottom : faker.helpers.enumValue(Size),
@@ -51,8 +51,8 @@ const randomInstrument = {
 console.log("randomInstrument : ", randomInstrument)
 
 const randomTreasury= {
-    created_at : faker.date.between({from: 20/04/2017, to: 15/05/2023 }),
-    paid_at : faker.date.between({from : 15/05/2023, to : 31/08/2033}), 
+    created_at : faker.date.between({from: '20/04/2017', to: '15/05/2023' }),
+    paid_at : faker.date.between({from : '15/05/2023', to : '31/08/2033'}), 
     subject : faker.company.catchPhraseDescriptor(),
     pole : faker.helpers.enumValue(Status),
 }
@@ -67,6 +67,6 @@ console.log("randomTreasuryMember : ", randomTreasuryMember)
 const randomIssue = {
     id_Member: faker.number.int({min: 1, max: 69}),
     id_organization : faker.helpers.enumValue(Status),
-    content : faker.,
+    content : faker.lorem.lines({min: 1, max : 5}),
 }
 console.log("randomIssue : ", randomIssue)
