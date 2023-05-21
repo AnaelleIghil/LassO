@@ -57,10 +57,12 @@ while true; do
                                             "Delete All")
                                                 echo "You choose to delete all, please wait"
                                                 sleep 1
-                                                sudo -u postgres psql -f sql/deleteTables.sql
+                                                sudo  -u postgres psql -f sql/deleteTables.sql
+                                                sleep 1
                                                 echo "Tables deleted"
                                                 sleep 1
                                                 sudo -u postgres psql -f sql/deleteDatabase.sql
+                                                sleep 1
                                                 echo "Database and Role deleted"
                                                 sleep 1
                                         break
