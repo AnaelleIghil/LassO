@@ -48,10 +48,14 @@ CREATE TABLE "organization"
 (
     id integer NOT NULL,
     pole pole NOT NULL,
-    responsible text,
+    responsible_Name text,
+    responsible_Firstname text ,
+    id_Member integer, 
     mail email,
     password text,
     PRIMARY KEY (id)
+     CONSTRAINT "id_Member" PRIMARY KEY (id)
+        INCLUDE(id)
 );
 
 CREATE TABLE IF NOT EXISTS "instrument"
@@ -63,8 +67,8 @@ CREATE TABLE IF NOT EXISTS "instrument"
     rods integer,
     weight integer,
     sticker boolean,
-    CONSTRAINT "id_Instrument" PRIMARY KEY (id)
-        INCLUDE(id)
+    CONSTRAINT "id_Instrument" FOREIGN KEY (member)
+
 );
 
 CREATE TABLE IF NOT EXISTS "member"
@@ -193,5 +197,18 @@ CREATE TABLE IF NOT EXISTS "messages"
     content text COLLATE pg_catalog."default",
     status "statusTickets"
 );
+
+CREATE TRIGGER trigger_Member_Initial
+AFTER INSERT ON member
+FOR EACH ROW 
+IF status = "";
+
+EXECUTE PROCEDURE organization_Update;
+
+CREATE OR REPLACE FUNCTION organization_Update (c json) RETURNS organizations AS $$
+    INSERT INTO organization
+    (pole, responsible_Name, responsible_Firstname, id_Member )
+    VALUES 
+    (status, name, firstname, id)
 
 COMMIT;

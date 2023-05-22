@@ -43,7 +43,12 @@ const randomSuit = {
 console.log("randomSuit: ", randomSuit)
 
 const randomInstrument = {
-    
+    name : faker.string.alpha(4),
+    type : faker.helpers.enumValue( Instrument),
+    observation : faker.company.catchPhrase(),
+    rods : faker.number.int(8),
+    weight : faker.number.float({min: 0.5, max: 50, precision: 0.1}),
+    sticker: faker.datatype.boolean()
 }
 console.log("randomInstrument : ", randomInstrument)
 
@@ -67,3 +72,11 @@ const randomIssue = {
     content : faker.lorem.lines({min: 1, max : 5}),
 }
 console.log("randomIssue : ", randomIssue)
+
+const randomMessage ={
+    id_Member: faker.number.int({min: 1, max: 69}),
+    id_organization : faker.helpers.enumValue(Status),
+    send_at: faker.date.between({from: '20/04/2017', to: '15/05/2023'}),
+    subject : faker.word.adjective(),
+    content: faker.lorem.paragraph({min:1, max:5}),
+} 
