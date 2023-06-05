@@ -13,7 +13,7 @@ enum Gender { Male='M', female='F' };
 enum Status {Admin='Admin', Treasury='Treasury', Event='Event', Logistics='Logistics', Secretary='Secretary', Instruments='Instruments', Suits='Suits', Communications='Communications'};
 enum Instrument {Surdo='Surdo', Repinique='Repinique', Caixa='Caixa', Tamborim='Tamborim', Chocalho='Chocalho', Agogô='Agogô', Cuica='Cuica', Apito='Apito'};
 enum Group { Carnival='Carnival' , Mascarade='Mascarade', TragOul='TragOul', Rathma='Rathma', Bones='Bones', Heritage='Heritage', Jesseth='Jesseth', Pestilence='Pestilence', Inarius='Inarius'}
-
+/*
 const randomMember ={
 name : faker.person.lastName(),
 firstname : faker.person.firstName(),
@@ -31,7 +31,6 @@ status : faker.helpers.enumValue(Status),
 instrument : faker.helpers.enumValue(Instrument),
 
 }
-console.log("randomMember: ", randomMember)
 
 const randomSuit = {
     group : faker.helpers.enumValue(Group),
@@ -59,20 +58,17 @@ const randomTreasury= {
     pole : faker.helpers.enumValue(Status),
 }
 console.log(randomTreasury)
-
 const randomTreasuryMember = {
     status_deposit: faker.datatype.boolean(),
     status_cotisation: faker.datatype.boolean(),
 }
 console.log("randomTreasuryMember : ", randomTreasuryMember)
-
 const randomIssue = {
     id_Member: faker.number.int({min: 1, max: 69}),
     id_organization : faker.helpers.enumValue(Status),
     content : faker.lorem.lines({min: 1, max : 5}),
 }
 console.log("randomIssue : ", randomIssue)
-
 const randomMessage ={
     id_Member: faker.number.int({min: 1, max: 69}),
     id_organization : faker.helpers.enumValue(Status),
@@ -80,3 +76,102 @@ const randomMessage ={
     subject : faker.word.adjective(),
     content: faker.lorem.paragraph({min:1, max:5}),
 } 
+*/
+const randomIssue = {
+    id_Member: faker.number.int({min: 1, max: 69}),
+    id_organization : faker.helpers.enumValue(Status),
+    content : faker.lorem.lines({min: 1, max : 5}),
+}
+console.log("randomIssue : ", randomIssue)
+/**
+ * List of all interface used in theis code 
+ * 
+ */
+interface Member {
+    name : string;
+firstname : string;
+nickname : string;
+email : string;
+password : string;
+birthdate : Date;
+phone : string|number;
+adress: string;
+zip_code : string |number;
+gender_suit : string;
+size_up : string;
+size_bottom : string;
+status :string;
+instrument :string;
+}
+
+interface Suit {
+    group : string;
+    gender: string;
+    observation: string;
+    size : string;
+}
+interface instrument {
+    name : string;
+    type : string;
+    observation : string;
+    rods : number;
+    weight : number;
+    sticker: boolean ; 
+}
+interface Treasury{
+    created_at : number;
+    paid_at : number;
+    subject : string;
+    pole : string;
+}
+interface TreasuryMember{
+    status_deposit: boolean
+    status_cotisation: boolean
+}
+interface Issue {
+    id_Member: number;
+    id_organization : string;
+    content : string;
+}
+interface Message {
+    id_Member: number;
+    id_organization : string;
+    send_at: number;
+    subject :string;
+    content: string;
+}
+
+
+const Nb_Users:number= 69 ;
+
+ /**
+  * function to execute 
+  */
+
+function generateMember(Nb_Users:number): any {
+    const Members: Array<Member>= [];
+    for (let i=0; i < Nb_Users ; i +=1){
+        const randomMember: Member ={
+            name : faker.person.lastName(),
+            firstname : faker.person.firstName(),
+            nickname : faker.word.interjection(5),
+            email : faker.internet.email(),
+            password : faker.internet.password(),
+            birthdate : faker.date.birthdate({ min: 1930, max: 2015, mode:'year'}),
+            phone : faker.phone.number('06########'),
+            adress: faker.location.streetAddress() ,
+            zip_code : fakerFR.location.zipCode() ,
+            gender_suit : faker.helpers.enumValue(Gender),
+            size_up : faker.helpers.enumValue(Size) ,
+            size_bottom : faker.helpers.enumValue(Size),
+            status : faker.helpers.enumValue(Status),
+            instrument : faker.helpers.enumValue(Instrument),
+            }
+            Members.push(randomMember);
+    }
+    console.log(Members)
+    return Members;
+
+}
+
+generateMember(Nb_Users);
