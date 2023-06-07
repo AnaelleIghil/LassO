@@ -252,3 +252,7 @@ function generateMessage(Nb_Users:number):any{
         } 
     }
 }
+
+async function insertMembers(Members: Member): any{
+    
+}
